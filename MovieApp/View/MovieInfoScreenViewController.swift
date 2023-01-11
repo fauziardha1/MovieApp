@@ -44,6 +44,7 @@ class MovieInfoScreenViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "photo")
         return imageView
     }()
     
@@ -53,6 +54,7 @@ class MovieInfoScreenViewController: UIViewController {
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
+        imageView.image = UIImage(systemName: "lanyardcard.fill")
         return imageView
     }()
     lazy var movieTitle : UILabel = {
@@ -329,13 +331,21 @@ class MovieInfoScreenViewController: UIViewController {
             self.movieDetail = self.vm.getMovieDetailInstance()
             
             DispatchQueue.main.async {
-                self.backgroundImage.load(url: URL(string: self.imageBaseUrl + self.movieDetail.first!.backdropPath!)!)
+                if self.movieDetail.first?.backdropPath == nil || self.vm.getConnectionStatus() == false {
+                    self.backgroundImage.image = UIImage(systemName: "photo")
+                    self.backgroundImage.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+                    self.backgroundImage.heightAnchor.constraint(equalToConstant: 300).isActive = true
+                }else{
+                    
+                    self.backgroundImage.load(url: URL(string: self.imageBaseUrl + self.movieDetail.first!.backdropPath!)!)
+                }
                 
                 self.posterImage.load(url: URL(string: self.imageBaseUrl + self.movieDetail.first!.posterPath! )!)
                 self.movieTitle.text = self.movieDetail.first!.title
                 
                 let comma = ","
                 var index = 0
+                self.movieGenre.numberOfLines = (self.movieDetail.first?.genres?.count ?? 0 ) > 1 ? 2 : 1
                 for genre in self.movieDetail.first!.genres! {
                     self.movieGenre.text! += (index > 0 ? comma : "") +  " \(genre.name!)"
                     index += 1
@@ -365,9 +375,6 @@ class MovieInfoScreenViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-//            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.topAnchor.constraint(equalTo: overviewSection.bottomAnchor, constant: 100),
-            
             backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
             buttonPlay.centerXAnchor.constraint(equalTo: backgroundImage.centerXAnchor),
@@ -389,23 +396,43 @@ class MovieInfoScreenViewController: UIViewController {
             tableview.topAnchor.constraint(equalTo: overviewContent.bottomAnchor, constant: 12),
         ])
         
-        
-        
-        
-        
+        // when no internet connection
+        if vm.getConnectionStatus() == false{
+            whenNoInternetConnection()
+        }
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func whenNoInternetConnection(){
+        
+        // background image placeholder
+        self.backgroundImage.image = UIImage(systemName: "photo")
+        self.backgroundImage.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        self.backgroundImage.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        // poster placeholder
+        posterImage.tintColor = .white
+        
+        // genre
+        self.movieGenre.text = "No data yet"
+        
+        // duration
+        self.movieDuration.text = "No data yet"
+        
+        // rate
+        self.movieRate.text = String(self.currentMovie?.voteAverage ?? 0) + " (" + String(self.currentMovie?.voteCount ?? 0) + " vote)"
+        
+        // overview
+        self.overviewContent.text = "Can't get the overview content yet. Please check your internet connection first."
+        
+        // button plat
+        self.buttonPlay.setBackgroundImage(UIImage(systemName: "play.slash.fill"), for: .normal)
+        self.buttonPlay.isEnabled = false
+        
+        // set title
+        self.movieTitle.text = self.currentMovie?.title ?? "Title"
     }
-    */
 
 }
 
