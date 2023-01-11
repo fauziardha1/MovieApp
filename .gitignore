@@ -1,0 +1,117 @@
+# Created by https://www.toptal.com/developers/gitignore/api/xcode,cocoapods,swiftpackagemanager,swift
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,cocoapods,swiftpackagemanager,swift
+
+### CocoaPods ###
+## CocoaPods GitIgnore Template
+
+# CocoaPods - Only use to conserve bandwidth / Save time on Pushing
+#           - Also handy if you have a large number of dependant pods
+#           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
+Pods/
+
+### Swift ###
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## User settings
+xcuserdata/
+
+## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
+*.xcscmblueprint
+*.xccheckout
+
+## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+## Obj-C/Swift specific
+*.hmap
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+# Package.pins
+# Package.resolved
+# *.xcodeproj
+# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
+# hence it is not needed unless you have added a package configuration file to your project
+# .swiftpm
+
+.build/
+
+# CocoaPods
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+# Pods/
+# Add this line if you want to avoid checking in source code from the Xcode workspace
+# *.xcworkspace
+
+# Carthage
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Carthage/Checkouts
+
+Carthage/Build/
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# fastlane
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code Injection
+# After new code Injection tools there's a generated folder /iOSInjectionProject
+# https://github.com/johnno1962/injectionforxcode
+
+iOSInjectionProject/
+
+### SwiftPackageManager ###
+Packages
+xcuserdata
+*.xcodeproj
+
+
+### Xcode ###
+
+## Xcode 8 and earlier
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# End of https://www.toptal.com/developers/gitignore/api/xcode,cocoapods,swiftpackagemanager,swift
+# Dibuat oleh https://www.toptal.com/developers/gitignore/api/xcode,cocoapods,swiftpackagemanager,swift # Edit di https://www.toptal.com/developers/gitignore?templates=xcode,cocoapods,swiftpackagemanager,swift ### CocoaPods ### ## Templat CocoaPods GitIgnore # CocoaPods - Gunakan hanya untuk menghemat bandwidth / Menghemat waktu saat Pushing # - Juga berguna jika Anda memiliki banyak pod dependen # - SEPERTI https://guides.cocoapods.org/using/using-cocoapods.html JANGAN PERNAH MENGABAIKAN FILE KUNCI Pod/ ### Cepat ### # Xcode # # kontributor gitignore: ingatlah untuk memperbarui Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore ## Pengaturan pengguna xuserdata/ ## kompatibilitas dengan Xcode 8 dan sebelumnya (mengabaikan tidak diperlukan mulai Xcode 9) *.xcscmblueprint *.xccheckout ## kompatibilitas dengan Xcode 3 dan sebelumnya (mengabaikan tidak diperlukan mulai Xcode 4) membangun/ DerivedData/ *.pindah-ke samping *.pbxuser !default.pbxuser *.mode1v3 !default.mode1v3 *.mode2v3 !default.mode2v3 *.perspektifv3 !default.perspektifv3 ## Khusus Obj-C/Swift *.hmap ## Kemasan aplikasi *.ipa *.dSYM.zip *.dSYM ## Taman bermain timeline.xctimeline playground.xcworkspace # Manajer Paket Swift # Tambahkan baris ini jika Anda ingin menghindari memeriksa kode sumber dari dependensi Swift Package Manager. # Paket/ # Paket. pin # Paket.diselesaikan # *.xcodeproj # Xcode secara otomatis membuat direktori ini dengan file .xcworkspacedata dan xcuserdata # karenanya tidak diperlukan kecuali Anda telah menambahkan file konfigurasi paket ke proyek Anda # .swiftpm .membangun/ # CocoaPods # Kami menyarankan untuk tidak menambahkan direktori Pods ke .gitignore Anda. Namun # Anda harus menilai sendiri, pro dan kontra disebutkan di: # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control # Pod/ # Tambahkan baris ini jika Anda ingin menghindari pemeriksaan kode sumber dari ruang kerja Xcode # *.xcworkspace #kartago # Tambahkan baris ini jika Anda ingin menghindari memeriksa kode sumber dari dependensi Carthage. # Carthage / Checkout Kartago/Bangun/ # Manajemen ketergantungan accio Ketergantungan/ .accio/ # jalur cepat # Disarankan untuk tidak menyimpan tangkapan layar di repo git. # Sebagai gantinya, gunakan fastlane untuk membuat ulang tangkapan layar kapan pun dibutuhkan. # Untuk informasi lebih lanjut tentang kunjungan penyiapan yang disarankan: # https://docs.fastlane.tools/best-practices/source-control/#source-control fastlane/report.xml fastlane/Preview.html fastlane/screenshots/**/*.png fastlane/test_output # Injeksi Kode # Setelah alat Injeksi kode baru ada folder yang dibuat /iOSInjectionProject # https://github.com/johnno1962/injectionforxcode ProyekInjeksi iOS/ ### SwiftPackageManager ### Paket xcuserdata *.xcodeproj ### Kode X ### ## Xcode 8 dan sebelumnya ### Patch Xcode ### *.xcodeproj/* !*.xcodeproj/proyek.pbxproj !*.xcodeproj/xcshareddata/ !*.xcodeproj/project.xcworkspace/ !*.xcworkspace/contents.xcworkspacedata /*.gcno **/xcshareddata/WorkspaceSettings.xcsettings # Akhir dari https://www.toptal.com/developers/gitignore/api/xcode,cocoapods,swiftpackagemanager,swift
+Translated from: English (Google)
